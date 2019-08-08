@@ -3,6 +3,8 @@ const router = express.Router();
 const pagesController = require('./controllers/pagesController')
 const userController = require('./controllers/userController')
 const postController = require('./controllers/postController')
+const cateController = require('./controllers/cateController.js')
+
 // 配置路由
 // router.get('/admin',(req,res)=>{
 //     res.render('admin/index')
@@ -39,6 +41,8 @@ router.get('/',pagesController.getIndexPage)
       // 业务处理路由
       .post('/login',userController.login)
       .get('/getAllPost',postController.getAllPost)
+      .get('/getAllCate',cateController.getAllCate)
+
 
 
 // 暴露
