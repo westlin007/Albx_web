@@ -23,7 +23,15 @@ exports.getAllPost = (obj,callback) => {
             sql = `select count(*) as cnt
                     from posts
                     join users on posts.user_id = users.id
-                    join categories on posts.category_id = categories.id`
+                    join categories on posts.category_id = categories.id
+                    where 2=2 ` // 添加恒成立
+            if( obj.cate && obj.cate != 'all'){  // 判断有没有传递分类数据
+                sql += ` and category_id = ${obj.cate}`
+            }
+            if(obj.status && obj.status != 'all'){
+                sql += ` and posts.status ='${obj.status}'`
+            }
+
             conn.query(sql,(err2,res2) => {
                 if(err2){
                     callback(err2)

@@ -1,8 +1,11 @@
 $(function(){
     // 定义全局的页码和页数量
     var pageNum = 1
-    var pageSize = 5
-     
+    var pageSize = 2
+    var obj = {
+        cates: 'all',
+        status: 'all'
+    }
     function init(search){
         $.ajax({
             url:'/getAllPost',
@@ -17,12 +20,17 @@ $(function(){
                 let html = template('postListTemp',result.data)
                 $('tbody').html(html);
                 //生成分页结构
-                setPagenation(Math.ceil(result.data.total / pageSize))
+              if(result.data.total === 0){
+                $('.pagination').html('')
+                $('tbody').html('<tr><td colspan="7" align="center">无文章</td></tr>')
+              }else{
+                setPagenation(Math.ceil(result.data.total/pageSize))
+              }
             }
         })
     }
     init()
-
+    
     // 分页功能
     function setPagenation(total){
         // 初始化
@@ -32,7 +40,7 @@ $(function(){
             totalPages:total, // 总页数
             onPageClicked:function(event,originalEvent,type,page){
                 pageNum = page
-                init()
+                init(obj)
             }
         })
     }
@@ -54,8 +62,9 @@ $(function(){
 
     // 实现筛选功能
     $('.btn-search').on('click',function(){
+        pageNum = 1
         // 收集数据
-        var obj = {
+         obj = {
             cate:$('.cateSelector').val(),
             status:$('.statuSelector').val()
         }
