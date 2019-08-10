@@ -43,3 +43,15 @@ exports.getAllPost = (obj,callback) => {
         }
     })
 }   
+
+// 文章新增
+exports.addPost = (obj,callback) => {
+    let sql =  `insert into posts set ?`
+    conn.query(sql,obj,(err,results) => {
+        if (err) {
+            callback(err)
+        } else {
+            callback(null)
+        }
+    })
+}

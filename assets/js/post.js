@@ -51,7 +51,7 @@ $(function(){
         url:'/getAllCate',
         dataType:'json',
         success:function(res){
-            console.log(res)
+            // console.log(res)
             var str = '<option value="all">所有分类</option>'
             for(var i = 0; i< res.data.length;i++){
                 str += `<option value="${res.data[i].id}">${res.data[i].name}</option>`

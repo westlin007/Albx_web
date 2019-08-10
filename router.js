@@ -4,6 +4,7 @@ const pagesController = require('./controllers/pagesController')
 const userController = require('./controllers/userController')
 const postController = require('./controllers/postController')
 const cateController = require('./controllers/cateController.js')
+const uploadController = require('./controllers/uploadController.js')
 
 // 配置路由
 // router.get('/admin',(req,res)=>{
@@ -42,6 +43,10 @@ router.get('/',pagesController.getIndexPage)
       .post('/login',userController.login)
       .get('/getAllPost',postController.getAllPost)
       .get('/getAllCate',cateController.getAllCate)
+      .post('/addPost',postController.addPost)
+
+      // 文件上传
+      .post('/uploadFile',uploadController.uploadFile)
 
 
 

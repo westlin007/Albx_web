@@ -8,9 +8,9 @@ let conn = mysql.createConnection({
 })
 
 exports.login = (email,callback) => {
-    let sql = `select * from users where email = "${email}"`
+    let sql = `select * from users where email = ? `
 
-    conn.query(sql,(err,result) => {
+    conn.query(sql,[email],(err,result) => {
         if (err) {
             callback(err)
         }else{

@@ -9,7 +9,7 @@ $(function(){
     }else{
         routerName = location.href.substring(location.href.lastIndexOf('/'),location.href.indexOf('?'))
     }
-    console.log(routerName);
+    // console.log(routerName);
     if(routerName == 'posts' || routerName == 'post-add' || routerName == 'categories'){
         menuPosts.addClass('in').attr('aria-expanded',true)
         // console.log(menuPosts.siblings('.collapsed'));
