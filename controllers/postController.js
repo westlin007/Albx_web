@@ -79,3 +79,20 @@ exports.editPostById = (req,res) => {
         }
     })
 }
+
+// 根据文章id删除指定的文章
+exports.delPostById = (req,res) => {
+    // 接收参数
+    var id = req.query.id
+    // 调用数据模块实现文章的删除
+    postModel.delPostById(id,(err) => {
+        if(err){
+            res.json({code:400,msg:'文章删除失败'})
+        }else{
+            res.json({
+                code:200,
+                msg:'文章删除成功'
+            })
+        }
+    })
+}
