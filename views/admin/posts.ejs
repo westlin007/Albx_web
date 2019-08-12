@@ -99,8 +99,8 @@
       <td class="text-center">{{value.created}}</td>
       <td class="text-center">{{value.status=='published'?'已发布':'草稿'}}</td>
       <td class="text-center">
-        <a href="javascript:;" class="btn btn-default btn-xs">编辑</a>
-        <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+        <a href="/admin/post-add?id={{value.id}}" class="btn btn-default btn-xs">编辑</a>
+        <a href="javascript:;" class="btn btn-danger btn-xs btnDel">删除</a>
       </td>
     </tr>
     {{/each}}

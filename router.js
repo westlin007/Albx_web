@@ -44,6 +44,8 @@ router.get('/',pagesController.getIndexPage)
       .get('/getAllPost',postController.getAllPost)
       .get('/getAllCate',cateController.getAllCate)
       .post('/addPost',postController.addPost)
+      .get('/getPostById',postController.getPostById)
+      .post('/editPostById',postController.editPostById)
 
       // 文件上传
       .post('/uploadFile',uploadController.uploadFile)
